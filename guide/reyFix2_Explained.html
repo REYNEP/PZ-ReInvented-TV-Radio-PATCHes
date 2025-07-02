@@ -1,0 +1,1626 @@
+<!DOCTYPE html><html><head>
+      <title>reyFix2_Explained</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\nitro_scoop\persist\vscode\data\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#c9d1d9;text-shadow:none;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::mozselection,code[class*=language-]::selection,pre[class*=language-]::mozselection,pre[class*=language-]::selection{text-shadow:none;background:#234879}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;background:#161b22}:not(pre)>code[class*=language-]{padding:.1em .3em;border-radius:.3em;color:#c9d1d9;background:#343942}pre[data-line]{position:relative}pre[class*=language-]>code[class*=language-]{position:relative;z-index:1}.line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:#2f2a1e;box-shadow:inset 5px 0 0 #674c16;z-index:0;pointer-events:none;line-height:inherit;white-space:pre}.namespace{opacity:.7}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8b949e}.token.punctuation{color:#c9d1d9}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#79c0ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a5d6ff}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a5d6ff}.token.atrule,.token.attr-value,.token.keyword{color:#f97583}.token.function{color:#d2a8ff}.token.important,.token.regex,.token.variable{color:#79b8ff}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#c5c8c6;background-color:#1d1f21;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#9ba09d}html body strong{color:#fff}html body del{color:#9ba09d}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#ddd;text-decoration:none}html body a:hover{color:#cecece;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#9ba09d;background-color:#303337;border-left:4px solid #43484c}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#43484c;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#fff}html body table td,html body table th{border:1px solid #43484c;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#fff;background-color:#303337;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#43484c;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #43484c;border-bottom:2px solid #35393c;padding:2px 4px;background-color:#303337;border-radius:3px}@media print{html body{background-color:#1d1f21}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#9ba09d}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}html body a{text-decoration:underline}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/* When you rewrite this file, before any kind of styling make sure if the PAGE Margin-top & margin bottom is okay 💁‍♀️ */
+/* Use this next time for @font-face generation:- C:\Users\REY\Desktop\Houdini_Level0\133.fonts_using */
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-Extrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-Extralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-Italic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-Regular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neuton';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Neuton/Neuton-ExtralightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-Italic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-Roman.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif Extra';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-BoldSlanted.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif Extra';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-RomanSlanted.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif Upright';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/CMUSerif/CMUSerif-UprightItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lotion';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Lotion/Lotion-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-BlackItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-ExtraBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-ExtraLightItalic.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/1a2cd65ead4eec3cf48556ca8c11811f0a0afdfc/fonts/NotoSerif-Static/NotoSerif-ThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'AudioLink Mono';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/AudioLinkMono/AudioLinkMono-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AudioLink Mono';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/AudioLinkMono/AudioLinkMono-Demi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AudioLink Mono';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/AudioLinkMono/AudioLinkMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AudioLink Mono';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/AudioLinkMono/AudioLinkMono-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AudioLink Mono';
+  src: url('https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/AudioLinkMono/AudioLinkMono-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Quartist";
+  src: url("https://raw.githubusercontent.com/REYNEP/reynep.github.io/2e538cfc8cca0cbcfa15a94c6dc24ed710d8117c/fonts/Quartist.ttf");
+}
+@font-face {
+  font-family: "Bahnschrift REY";
+  src: local("Bahnschrift"), url("https://media.githubusercontent.com/media/flying-whales/flying-whales/20e98b4dd0388a3fafd09acb8b07e5bd3dc701b9/Assets/Fonts/bahnschrift.ttf") format(ttf);
+}
+@font-face {
+  font-family: "Emoji REY";
+  src: url("https://raw.githubusercontent.com/REYNEP/reynep.github.io/refs/heads/main/fonts/SegoeUIEmoji.woff2");
+}
+@font-face {
+  font-family: "REY_FiraSansCondensedLightItalic";
+  src: local('Fira Sans Condensed Light Italic'), url("https://raw.githubusercontent.com/bBoxType/FiraSans/refs/heads/master/Fira_Sans_4_3/Fonts/Fira_Sans_TTF_4301/Condensed/Italic/FiraSansCondensed-LightItalic.ttf");
+}
+.markdown-preview {
+  padding: 2em calc(35% - 457px + 2em) !important;
+  /**
+    h1 {
+        page-break-before: always;
+    }
+    */
+  font-size: 24px;
+  line-height: 1.15;
+  font-family: 'CMU Serif', 'Bahnschrift', 'Emoji REY', monospace;
+  font-stretch: condensed;
+  font-weight: 400;
+  /** However, background-clip is not supported by princexml */
+}
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6,
+.markdown-preview strong {
+  font-family: 'Quartist' !important;
+}
+.markdown-preview h1 em,
+.markdown-preview h2 em,
+.markdown-preview h3 em,
+.markdown-preview h4 em,
+.markdown-preview h5 em,
+.markdown-preview h6 em,
+.markdown-preview strong em,
+.markdown-preview h1 i,
+.markdown-preview h2 i,
+.markdown-preview h3 i,
+.markdown-preview h4 i,
+.markdown-preview h5 i,
+.markdown-preview h6 i,
+.markdown-preview strong i {
+  font-family: 'CMU Serif';
+  font-weight: 400;
+}
+.markdown-preview h6 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.markdown-preview a {
+  font-style: italic;
+}
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
+  text-align: center;
+}
+.markdown-preview h2 {
+  margin-bottom: 0.2em;
+  padding-bottom: 0.2em;
+}
+.markdown-preview h4 {
+  margin-top: 1em;
+  margin-bottom: 0.15em;
+}
+.markdown-preview h5 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.markdown-preview blockquote {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 90%;
+}
+.markdown-preview code {
+  font-family: 'AudioLink Mono', 'Lotion', 'Emoji REY', monospace;
+  font-weight: bold;
+  font-size: 90%;
+  font-style: normal;
+}
+.markdown-preview pre {
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.markdown-preview pre > code {
+  font-size: 16px;
+}
+.markdown-preview pre {
+  page-break-inside: auto;
+  /* REYNEP MOD */
+}
+.markdown-preview img {
+  -prince-image-resolution: 150dpi;
+  /* set an explicit DPI */
+}
+.markdown-preview img.makeSmall_NoFlex {
+  -prince-image-resolution: 160dpi;
+  /* set an explicit DPI */
+}
+.markdown-preview img.makeSmall {
+  -prince-image-resolution: 160dpi;
+  /* set an explicit DPI */
+  float: left;
+  margin-right: 15px;
+}
+.markdown-preview img.makeSmaller {
+  -prince-image-resolution: 180dpi;
+  /* set an explicit DPI */
+  float: left;
+  margin-right: 20px;
+}
+.markdown-preview img.makeSmallest {
+  -prince-image-resolution: 200dpi;
+  /* set an explicit DPI */
+  float: left;
+  margin-right: 20px;
+}
+.markdown-preview table {
+  display: inline !important;
+  width: auto !important;
+}
+.markdown-preview ul > li,
+.markdown-preview ol > li {
+  margin-bottom: 15px;
+  font-style: italic;
+  font-weight: bold;
+}
+.markdown-preview ul > li ol > li,
+.markdown-preview ol > li ol > li,
+.markdown-preview ul > li ul > li,
+.markdown-preview ol > li ul > li {
+  font-style: normal;
+  font-weight: normal;
+  margin-top: 0.25em;
+  margin-bottom: 0px;
+  font-family: 'REY_FiraSansCondensedLightItalic', 'Emoji REY', monospace;
+  font-weight: 300;
+  font-size: 92%;
+  line-height: 1.15;
+}
+.markdown-preview ul > li ol > li ol > li ol > li,
+.markdown-preview ol > li ol > li ol > li ol > li,
+.markdown-preview ul > li ul > li ol > li ol > li,
+.markdown-preview ol > li ul > li ol > li ol > li,
+.markdown-preview ul > li ol > li ul > li ol > li,
+.markdown-preview ol > li ol > li ul > li ol > li,
+.markdown-preview ul > li ul > li ul > li ol > li,
+.markdown-preview ol > li ul > li ul > li ol > li,
+.markdown-preview ul > li ol > li ol > li ul > li,
+.markdown-preview ol > li ol > li ol > li ul > li,
+.markdown-preview ul > li ul > li ol > li ul > li,
+.markdown-preview ol > li ul > li ol > li ul > li,
+.markdown-preview ul > li ol > li ul > li ul > li,
+.markdown-preview ol > li ol > li ul > li ul > li,
+.markdown-preview ul > li ul > li ul > li ul > li,
+.markdown-preview ol > li ul > li ul > li ul > li {
+  line-height: 1.1;
+}
+.markdown-preview ul > li ol > li h5,
+.markdown-preview ol > li ol > li h5,
+.markdown-preview ul > li ul > li h5,
+.markdown-preview ol > li ul > li h5 {
+  margin-top: 0px;
+}
+.markdown-preview ul > li ol > li pre,
+.markdown-preview ol > li ol > li pre,
+.markdown-preview ul > li ul > li pre,
+.markdown-preview ol > li ul > li pre {
+  margin-bottom: 4px;
+}
+.markdown-preview .REY_SECTION_TYPE1 ul > li,
+.markdown-preview .REY_SECTION_TYPE1 ol > li {
+  margin-bottom: 0px;
+  font-weight: 100;
+}
+.markdown-preview .REY_SECTION_TYPE1 ul > li strong,
+.markdown-preview .REY_SECTION_TYPE1 ol > li strong {
+  font-family: 'Quartist';
+}
+.markdown-preview .REY_SECTION_TYPE1 ul > li ol > li,
+.markdown-preview .REY_SECTION_TYPE1 ol > li ol > li,
+.markdown-preview .REY_SECTION_TYPE1 ul > li ul > li,
+.markdown-preview .REY_SECTION_TYPE1 ol > li ul > li {
+  margin-bottom: 0px;
+  font-family: 'REY_FiraSansCondensedLightItalic', 'Emoji REY', monospace;
+}
+.markdown-preview .REY_SECTION_TYPE2 {
+  line-height: 28px;
+}
+.markdown-preview .REY_SECTION_TYPE2 ul > li,
+.markdown-preview .REY_SECTION_TYPE2 ol > li {
+  margin-bottom: -8px;
+  font-weight: 100;
+}
+.markdown-preview .REY_SECTION_TYPE2 ul > li strong,
+.markdown-preview .REY_SECTION_TYPE2 ol > li strong {
+  font-family: 'Quartist';
+}
+.markdown-preview .REY_SECTION_TYPE2 ul > li ol > li,
+.markdown-preview .REY_SECTION_TYPE2 ol > li ol > li,
+.markdown-preview .REY_SECTION_TYPE2 ul > li ul > li,
+.markdown-preview .REY_SECTION_TYPE2 ol > li ul > li {
+  margin-bottom: 0px;
+  font-family: 'REY_FiraSansCondensedLightItalic', 'Emoji REY', monospace;
+}
+.markdown-preview .REY_SECTION_TYPE2 ul,
+.markdown-preview .REY_SECTION_TYPE2 li {
+  margin-bottom: 32px;
+}
+.markdown-preview .REY_ACADEMIA1 p {
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+.markdown-preview .REY_ACADEMIA1 br {
+  content: "";
+  margin: 2em;
+  display: block;
+  font-size: 24%;
+}
+.markdown-preview .REY_ACADEMIA1 ul li,
+.markdown-preview .REY_ACADEMIA1 ol li {
+  font-family: 'Noto Serif', 'Liberation Serif', 'Typography Times', 'Quivira', 'CMU Serif', 'Quartist', 'Times New Roman', 'Lotion';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0px;
+  margin-bottom: 0px;
+  margin-top: 2px;
+}
+.markdown-preview .REY_ACADEMIA1 ul li ol > li,
+.markdown-preview .REY_ACADEMIA1 ol li ol > li,
+.markdown-preview .REY_ACADEMIA1 ul li ul > li,
+.markdown-preview .REY_ACADEMIA1 ol li ul > li {
+  font-size: 95%;
+}
+.markdown-preview .REY_ACADEMIA1 ul p,
+.markdown-preview .REY_ACADEMIA1 ol p {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.markdown-preview .REY_ACADEMIA1 ul br,
+.markdown-preview .REY_ACADEMIA1 ol br {
+  content: "";
+  margin: 0.2em;
+  display: block;
+  font-size: 24%;
+}
+.markdown-preview .REY_ACADEMIA1 .BR1 {
+  padding-bottom: 10px;
+}
+.markdown-preview .REY_ACADEMIA1 .BR2 {
+  padding-bottom: 20px;
+}
+.markdown-preview .REY_ACADEMIA1 .BR3 {
+  padding-bottom: 30px;
+}
+.markdown-preview .REY_TITLE_SECTION1 {
+  text-align: center;
+}
+.markdown-preview .REY_TITLE_SUB1 {
+  margin-top: -1.25em;
+  font-size: 110%;
+  line-height: 100%;
+  font-family: 'Neuton';
+  font-weight: 200;
+  font-style: italic;
+}
+.markdown-preview .REY_TITLE_SUB2 {
+  margin-top: 0em;
+  font-size: 110%;
+  line-height: 100%;
+  font-family: 'Neuton';
+  font-weight: 200;
+  font-style: italic;
+}
+.markdown-preview .REY_PAGE_START {
+  margin-top: -60px;
+}
+.markdown-preview .REY_NOSHOW_MD {
+  display: none;
+}
+.markdown-preview .REY_NOSHOW_PDF {
+  display: block;
+}
+.markdown-preview .REY_BR_LIST_LVL3 {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+.markdown-preview .REY_BR_LIST3 {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+.markdown-preview .REY_BR_LIST2 {
+  margin: 0;
+  margin-bottom: 0.75em;
+}
+.markdown-preview .REY_BR_LIST1 {
+  margin: 0;
+  margin-bottom: 1em;
+}
+.markdown-preview .REY_BR1_NEGATIVE {
+  margin-top: -70px;
+}
+.markdown-preview .REY_BR2_NEGATIVE {
+  margin-top: -50px;
+}
+.markdown-preview .REY_BR3_NEGATIVE {
+  margin-top: -40px;
+}
+.markdown-preview .REY_BR3_NEGATIVE_WEIRD {
+  margin-top: -40px;
+}
+.markdown-preview .REY_BR4_NEGATIVE {
+  margin-top: -30px;
+}
+.markdown-preview .REY_BR4_NEGATIVE_WEIRD {
+  margin-top: -30px;
+}
+.markdown-preview .REY_BR5_NEGATIVE {
+  margin-top: -20px;
+}
+.markdown-preview .REY_BR6_NEGATIVE {
+  margin-top: -10px;
+}
+.markdown-preview .REY_BR1_POSITIVE_PDF {
+  margin-top: 0;
+}
+.markdown-preview .REY_PAGEBREAK {
+  margin-bottom: 300px;
+  page-break-before: always;
+}
+.markdown-preview .REY_TITLE {
+  margin-top: -36px;
+}
+.markdown-preview .REY_TITLEV2 {
+  margin-top: -36px;
+}
+.markdown-preview .REY_TITLEV2 h1,
+.markdown-preview .REY_TITLEV2 h2 {
+  margin-bottom: -20px;
+}
+.markdown-preview .REY_TABLE_V1 {
+  font-style: normal;
+  font-family: 'Bahnschrift REY';
+  font-weight: 100;
+  font-variant: small-caps;
+}
+.markdown-preview .REY_TABLE_V2 {
+  font-size: 80%;
+}
+.markdown-preview .REY_SMALLER_CODE {
+  font-size: 0.7em;
+}
+.markdown-preview .REY_SMALLER_CODE > pre > code {
+  font-size: 0.95em;
+  line-height: 100%;
+}
+.markdown-preview .REY_IMG_CONTAINER {
+  font-size: 85%;
+  line-height: 125%;
+}
+.markdown-preview .REY_DocTitle {
+  text-align: center;
+  font-size: 30px;
+  background: linear-gradient(145deg, #ff7f00, #8e44ad);
+  /* Orange to Purple Gradient */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: bold;
+}
+.markdown-preview.prince {
+  color: black !important;
+  font-size: 15px;
+  font-weight: 100;
+}
+.markdown-preview.prince .REY_PAGEBREAK {
+  margin-bottom: 0px;
+  margin-top: -28px;
+}
+.markdown-preview.prince .REY_TITLEV2 {
+  margin-top: -67.5px;
+}
+.markdown-preview.prince .REY_TITLEV2 h1,
+.markdown-preview.prince .REY_TITLEV2 h2 {
+  margin-bottom: -18px;
+}
+.markdown-preview.prince .REY_TITLE_SUB2 {
+  margin-top: -10px;
+}
+.markdown-preview.prince .REY_BR1_POSITIVE_PDF {
+  margin-top: 50px;
+}
+.markdown-preview.prince .REY_BR1_NEGATIVE {
+  margin-top: -40px;
+}
+.markdown-preview.prince .REY_BR2_NEGATIVE {
+  margin-top: -30px;
+}
+.markdown-preview.prince .REY_BR3_NEGATIVE {
+  margin-top: -20px;
+}
+.markdown-preview.prince .REY_BR3_NEGATIVE_WEIRD {
+  margin-top: -50px;
+}
+.markdown-preview.prince .REY_BR4_NEGATIVE {
+  margin-top: -15px;
+}
+.markdown-preview.prince .REY_BR4_NEGATIVE_WEIRD {
+  margin-top: -42.5px;
+}
+.markdown-preview.prince .REY_BR5_NEGATIVE {
+  margin-top: -10px;
+}
+.markdown-preview.prince .REY_PAGE_STARTS_WITH_H2 {
+  margin-top: -50px;
+}
+.markdown-preview.prince .REY_PAGE_STARTS_WITH_H1 {
+  margin-top: -65px;
+}
+.markdown-preview.prince .REY_NOSHOW_MD {
+  display: block !important;
+}
+.markdown-preview.prince .REY_NOSHOW_PDF {
+  display: none  !important;
+}
+.markdown-preview.prince h1,
+.markdown-preview.prince h2 {
+  text-align: center;
+}
+.markdown-preview.prince h3 {
+  margin-top: -2.5px;
+}
+.markdown-preview.prince h6 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.markdown-preview.prince .REY_BLOCK_GAP {
+  margin-top: 50px;
+}
+.markdown-preview.prince .REY_PDF_MORE_HEIGHT {
+  margin-top: -70pt;
+}
+.markdown-preview.prince .REY_PDF_MORE_HEIGHT2 {
+  margin-top: -30pt;
+}
+.markdown-preview.prince .REY_HR > hr {
+  display: none !important;
+}
+.markdown-preview.prince .REY_HR {
+  margin-top: 50px;
+}
+.markdown-preview.prince .REY_SMALLER_CODE > pre > code {
+  font-size: 1em;
+  line-height: 100%;
+}
+.markdown-preview.prince a {
+  font-style: italic;
+  text-decoration: none;
+  color: #08c;
+}
+.markdown-preview.prince a:hover {
+  text-decoration: underline;
+  color: #00a3f5;
+}
+.markdown-preview.prince ul > li,
+.markdown-preview.prince ol > li {
+  margin-bottom: 5px;
+}
+.markdown-preview.prince .REY_SECTION_TYPE1 ul > li,
+.markdown-preview.prince .REY_SECTION_TYPE1 ol > li {
+  margin-bottom: -3px;
+}
+.markdown-preview.prince .REY_SECTION_TYPE2 {
+  line-height: 18px;
+}
+.markdown-preview.prince .REY_SECTION_TYPE2 ul > li,
+.markdown-preview.prince .REY_SECTION_TYPE2 ol > li {
+  margin-bottom: -5px;
+}
+.markdown-preview.prince .REY_SECTION_TYPE2 ul,
+.markdown-preview.prince .REY_SECTION_TYPE2 li {
+  margin-bottom: 10px;
+}
+.markdown-preview.prince ul > li ol > li,
+.markdown-preview.prince ol > li ol > li,
+.markdown-preview.prince ul > li ul > li,
+.markdown-preview.prince ol > li ul > li {
+  margin-bottom: 0px;
+  font-family: 'Fira Sans Condensed Light Italic', 'Emoji REY', monospace;
+  font-size: 92.5%;
+}
+.markdown-preview.prince pre {
+  max-width: 100%;
+  /* Prevent overflow */
+}
+.markdown-preview.prince img {
+  max-width: 104%;
+  width: - 104%;
+  margin-left: -2%;
+  display: flex;
+}
+.markdown-preview.prince pre {
+  line-height: 110%;
+  margin-bottom: 0px;
+}
+.markdown-preview.prince pre > code {
+  font-size: 11px;
+  white-space: pre-wrap;
+  /* Enable word wrap */
+  word-wrap: break-word;
+  /* Break words that exceed the width */
+  word-break: normal;
+  overflow-wrap: break-word;
+  /* Prevent overflow */
+}
+/**
+MarkDown File Top part:-
+---
+id: "amVK_Docs"
+class: "DocumentClass1"
+---
+*/
+.REY_Class1 {
+  font-size: 22px;
+  font-family: 'Neuton';
+  font-weight: 200;
+  line-height: 28px;
+}
+.REY_Class1 em {
+  font-weight: 400;
+}
+.REY_Class1 ul > li,
+.REY_Class1 ol > li {
+  margin-bottom: 0px;
+  font-style: italic;
+  font-weight: normal;
+}
+.REY_Class1 h1,
+.REY_Class1 h2 {
+  margin-bottom: 0px;
+}
+.REY_Class1 h1 {
+  margin-top: 20px;
+}
+.REY_Class1 h2 {
+  margin-top: 20px;
+}
+.REY_Class1.prince {
+  font-size: 15px !important;
+  font-family: 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+  font-weight: 200 !important;
+  line-height: 17px;
+}
+.REY_Class2.prince {
+  font-size: 15px !important;
+  font-family: 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+  font-weight: 200 !important;
+  line-height: 17px;
+}
+.REY_Class3.prince {
+  font-size: 15px !important;
+  font-family: 'Quartist', 'Neuton', 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+  font-weight: 100 !important;
+  line-height: 17px;
+  color: black !important;
+}
+.REY_Class3.prince strong {
+  font-family: 'Neuton' !important;
+  font-weight: bold;
+}
+.REY_Class4.prince {
+  font-size: 14px !important;
+  font-family: 'CMU Serif', 'Quivira', 'Bahnschrift Light Condensed' !important;
+  font-weight: 100 !important;
+  line-height: 16px;
+  color: black !important;
+}
+.REY_Class4.prince strong {
+  font-size: 13px !important;
+  font-family: 'AudioLink Mono' !important;
+  font-weight: 700 !important;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  padding: 0.075em 0.3em;
+}
+/**
+@page { 
+    size: A4;
+
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+    margin-outside: 1.5cm;
+    margin-inside: 1.5cm;
+
+    prince-image-resolution: 300dpi;
+
+    @bottom-center {
+        content: counter(page);
+        margin: 0;
+        margin-top: -1.3cm;
+        padding: 0;
+    }
+}
+*/
+@page {
+  size: A4;
+  margin-top: 0.5cm;
+  margin-bottom: 0cm;
+  margin-outside: 1cm;
+  margin-inside: 1cm;
+  prince-image-resolution: 300dpi;
+  @bottom-center {
+    content: counter(page);
+    margin: 0;
+    margin-top: -1.3cm;
+    padding: 0;
+  }
+}
+/**
+    https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css?id=local-style
+*/
+/** I think this part means like.... Specific to only when CREATING THE PDF. But not like specific to PRINCE-XML */
+@media print {
+  color: black !important;
+}
+/** I think this part means like.... Specific to only when CREATING THE PDF. But yes like specific to PRINCE-XML */
+.prince {
+  color: black !important;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<div class="REY_ACADEMIA1">
+<h2 id="project-zomboid-reyfix2">Project Zomboid <code>reyFix2</code> </h2>
+<h3 id="️-conflicting-mods">⚔️ Conflicting Mods </h3>
+<ol>
+<li>TV &amp; Radio ReInvented <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3420581050">🔗</a></li>
+<li>Better Sorting        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2313387159">🔗</a></li>
+</ol>
+<h3 id="️-the-bug-">🏞️ The Bug 🚨 </h3>
+<div align="center" class="REY_TITLE_SUB1" style="font-size: 80%;">
+<p>✔️ = works ; ✖️ = TV &amp; Radio ReInvented UI doesn't show</p>
+</div>
+<ul>
+<li>✔️ SinglePlayer</li>
+<li>✖️ MultiPlayer (New Host)
+<ul>
+<li>✔️ Only <strong>TV &amp; Radio ReInvented</strong></li>
+<li>✖️ 2 Mods ➡️ <strong>TV &amp; Radio ReInvented</strong> + <strong>Better Sorting</strong></li>
+</ul>
+</li>
+<li>I disabled all other mods.<br>
+<img src="image.png" alt="alt text"></li>
+</ul>
+<h3 id="-same-reports-from-others">📝 Same Reports from others </h3>
+<ul>
+<li>Steam Official Bug Reports Page
+<ol>
+<li>comment #43 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=3#c595151486404527618">🔗</a></li>
+<li>comment #40 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=3#c595150321338027901">🔗</a></li>
+<li>comment #39 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=3#c595150242677029314">🔗</a></li>
+<li>comment #04 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/#c592888305856659854">🔗</a></li>
+</ol>
+</li>
+</ul>
+<div class="REY_NOSHOW_PDF">
+<hr>
+<div align="center" style="font-size: 50px; font-family: 'Quartist'; ">Page-Break</div>
+</div>
+<div class="REY_PAGEBREAK"></div>
+<div class="REY_NOSHOW_PDF">
+<hr>
+</div>
+<h3 id="if-you-are-feeling-exhausted-️-see-tldr-in-every-page">If, you are feeling exhausted ➡️ <em>See</em> TL:DR <em>in every page</em> </h3>
+<ul>
+<li>I wrote this thingy, like a story of bug hunting investigation. <strong>Linear TimeLine</strong> + <strong>Sharing Experience</strong> in sorted order</li>
+</ul>
+<hr>
+<h3 id="-pin-pointing">🔍 Pin-Pointing </h3>
+<ol>
+<li>
+<p><strong>Vanilla</strong> TV Names are like <code>ValuTech Television</code> in <strong>B41</strong></p>
+</li>
+<li>
+<p><code>BetterSorting</code> mod changes the name to <code>Television - ValuTech</code></p>
+<ul>
+<li>Both in <strong>SinglePlayer</strong> + <strong>MultiPlayer</strong></li>
+<li>This is done via
+<ul>
+<li><code>BetterSorting\media\lua\shared\Translate\EN\ItemName_EN.txt</code></li>
+<li><code>BetterSorting</code> loads it by "some" script "somewhere" along the way.... 🤔</li>
+</ul>
+  <div class="REY_BR_LIST1"></div>
+</li>
+</ul>
+</li>
+<li>
+<p><code>TV ReInvented</code></p>
+<ul>
+<li>Modifies Vanilla Implementation of <code>ISRadioWindow</code> (reimplements parts only)
+<ul>
+<li>🛠️ <code>prerender()</code></li>
+<li>🛠️ <code>readFromObject()</code></li>
+</ul>
+</li>
+<li>Both has
+<ul>
+<li><code>local checkName()</code> [not <strong>Vanilla</strong>]
+<ul>
+<li>which checks <code>getItemNameFromFullType()</code> against <strong>"smth shady"</strong></li>
+</ul>
+<hr>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="-glossary">📜 Glossary </h3>
+<ul>
+<li><code>InventoryItemFullType</code> = e.g. <code>Radio.TvBlack</code> (<strong>B41</strong>) = <code>Base.TvBlack</code> (<strong>B42</strong> ReWrite)</li>
+<li><code>InventoryItemFullType</code> = <code>ItemID</code></li>
+<li><code>InventoryItemFullType</code> = <code>getItemNameFromFullType()</code></li>
+</ul>
+<div class="REY_BR_LIST1"></div>
+<ul>
+<li>
+<p><code>Radio.TvBlack</code> = Unique Identifier for all <strong>ValuTech Television</strong> in <strong>B41</strong></p>
+<ul>
+<li>like, yk there are mods than can change
+<ul>
+<li><strong>name</strong></li>
+<li><strong>category</strong></li>
+</ul>
+</li>
+<li>but <code>Radio.TvBlack</code> won't change
+<ul>
+<li>it's more like an Unique Static ID for the <strong>"Asset"</strong></li>
+</ul>
+  <div class="REY_BR_LIST1"></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>"smth shady"</strong> = <code>nameD</code> in here</p>
+<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token keyword keyword-function">function</span> ISRadioWindow<span class="token punctuation">:</span><span class="token function">readFromObject</span><span class="token punctuation">(</span> _player<span class="token punctuation">,</span> _deviceObject <span class="token punctuation">)</span>
+    <span class="token keyword keyword-local">local</span> <span class="token keyword keyword-function">function</span> <span class="token function">checkName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> nameD <span class="token operator">==</span> <span class="token function">getItemNameFromFullType</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>       <span class="token comment">-- here "name" = "Radio.TvBlack"</span>
+    <span class="token keyword keyword-end">end</span>
+
+<span class="token comment">-- REYNEP suggests a rename</span>
+<span class="token keyword keyword-function">function</span> ISRadioWindow<span class="token punctuation">:</span><span class="token function">readFromObject</span><span class="token punctuation">(</span>Player<span class="token punctuation">,</span> IsoObject_Radio<span class="token punctuation">)</span>
+</code></pre><hr>
+</li>
+</ul>
+<h3 id="️-investigation">🕵️ Investigation </h3>
+<ul>
+<li>
+<p>Right Hand Side = <code>getItemNameFromFullType()</code> = Pretty Consistent</p>
+<ul>
+<li>
+<p><code>BetterSorting</code> Enabled</p>
+<ul>
+<li><code>SinglePlayer</code> = <code>Television - ValuTech</code></li>
+<li><code>MultiPlayer</code> = <code>Television - ValuTech</code>
+<ul>
+<li>New Host = <code>Television - ValuTech</code></li>
+<li>Old Host = <code>Television - ValuTech</code></li>
+</ul>
+  <div class="REY_BR_LIST1"></div>
+</li>
+</ul>
+</li>
+<li>
+<p><code>BetterSorting</code> Disabled</p>
+<ul>
+<li><code>SinglePlayer</code> = <code>ValuTech Television</code></li>
+<li><code>MultiPlayer</code> = <code>ValuTech Television</code>
+<ul>
+<li>New Host = <code>ValuTech Television</code></li>
+<li>Old Host = <code>ValuTech Television</code></li>
+</ul>
+  <div class="REY_BR_LIST1"></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h6>So, our problem must have been with the LHS</h6>
+</li>
+<li>
+<p><code>nameD</code></p>
+<ul>
+<li>
+<p><code>BetterSorting</code> Enabled</p>
+<ul>
+<li><code>SinglePlayer</code> = <code>Television - ValuTech</code></li>
+<li><code>MultiPlayer</code> = <code>ValuTech Television</code> 🚨
+<ul>
+<li>New Host = <code>ValuTech Television</code> 🚨</li>
+<li>Old Host = didn't test</li>
+</ul>
+  <div class="REY_BR_LIST1"></div>
+</li>
+</ul>
+</li>
+<li>
+<p><code>BetterSorting</code> Disabled</p>
+<ul>
+<li><code>SinglePlayer</code> = <code>ValuTech Television</code></li>
+<li><code>MultiPlayer</code> = <code>ValuTech Television</code>
+<ul>
+<li>New Host = <code>ValuTech Television</code></li>
+<li>Old Host = <code>ValuTech Television</code>
+<ul>
+<li>here, I was supposed to get an error 🚨 as per FAQ 🤔<br>
+Old Hosted Servers initially started without <code>TV &amp; Radio Inventory</code> aren't supposed to be working</li>
+</ul>
+</li>
+</ul>
+  <div class="REY_BR_LIST1"></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>🚨 = is where the issue is....</p>
+</li>
+</ul>
+<div class="REY_BR_LIST1"></div>
+<h3 id="-tldr">🚴 TL;DR </h3>
+<div align="center">
+<p>it's a <code>local checkName()</code> implementation issue! 🚨 with <code>nameD</code></p>
+</div>
+<h3 id="-so-what-issss-really-named">🤔 So, What issss really <code>nameD</code>? </h3>
+<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token comment">-- UnModified Code from `Radio &amp; TV ReInvented` + Added LineGaps only</span>
+<span class="token keyword keyword-function">function</span> ISRadioWindow<span class="token punctuation">:</span><span class="token function">readFromObject</span><span class="token punctuation">(</span> _player<span class="token punctuation">,</span> _deviceObject <span class="token punctuation">)</span>
+    self<span class="token punctuation">:</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    self<span class="token punctuation">.</span>player <span class="token operator">=</span> _player<span class="token punctuation">;</span>
+    self<span class="token punctuation">.</span>device <span class="token operator">=</span> _deviceObject<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>device <span class="token keyword keyword-then">then</span>
+        self<span class="token punctuation">.</span>deviceType <span class="token operator">=</span> 
+            <span class="token punctuation">(</span><span class="token function">instanceof</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>device<span class="token punctuation">,</span> <span class="token string">"Radio"</span><span class="token punctuation">)</span>           <span class="token keyword keyword-and">and</span> <span class="token string">"InventoryItem"</span> <span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span>
+            <span class="token punctuation">(</span><span class="token function">instanceof</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>device<span class="token punctuation">,</span> <span class="token string">"IsoWaveSignal"</span><span class="token punctuation">)</span>   <span class="token keyword keyword-and">and</span> <span class="token string">"IsoObject"</span>     <span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span>
+            <span class="token punctuation">(</span><span class="token function">instanceof</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>device<span class="token punctuation">,</span> <span class="token string">"VehiclePart"</span><span class="token punctuation">)</span>     <span class="token keyword keyword-and">and</span> <span class="token string">"VehiclePart"</span>   <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>deviceType <span class="token keyword keyword-then">then</span>
+            self<span class="token punctuation">.</span>deviceData <span class="token operator">=</span> _deviceObject<span class="token punctuation">:</span><span class="token function">getDeviceData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            self<span class="token punctuation">.</span>title <span class="token operator">=</span> self<span class="token punctuation">.</span>deviceData<span class="token punctuation">:</span><span class="token function">getDeviceName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-end">end</span>
+    <span class="token keyword keyword-end">end</span>
+
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-not">not</span> self<span class="token punctuation">.</span>player<span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token punctuation">(</span><span class="token keyword keyword-not">not</span> self<span class="token punctuation">.</span>device<span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token punctuation">(</span><span class="token keyword keyword-not">not</span> self<span class="token punctuation">.</span>deviceData<span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token punctuation">(</span><span class="token keyword keyword-not">not</span> self<span class="token punctuation">.</span>deviceType<span class="token punctuation">)</span> <span class="token keyword keyword-then">then</span>
+        self<span class="token punctuation">:</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-return">return</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-end">end</span>
+
+    <span class="token keyword keyword-local">local</span> nameD <span class="token operator">=</span> self<span class="token punctuation">.</span>title
+
+    <span class="token punctuation">.</span>
+    <span class="token punctuation">.</span>
+    <span class="token punctuation">.</span> <span class="token comment">-- Function goes on</span>
+</code></pre><ul>
+<li>
+<h4>Summary</h4>
+<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token keyword keyword-local">local</span> nameD <span class="token operator">=</span> _deviceObject<span class="token punctuation">:</span><span class="token function">getDeviceData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">getDeviceName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></li>
+</ul>
+<div class="REY_NOSHOW_PDF">
+<hr>
+<div align="center" style="font-size: 50px; font-family: 'Iosevka Curly'; ">Page-Break</div>
+</div>
+<div class="REY_PAGEBREAK"></div>
+<div class="REY_NOSHOW_PDF">
+<hr>
+</div>
+<h3 id="-what-do-we-do-now">😵‍💫 What do we do now? </h3>
+<ul>
+<li>Well, the next best thing to do.... will always be....
+<ul>
+<li>to check <strong>"What exactly is getting passed in?"</strong></li>
+<li>well, fortunately in <strong>lua</strong> / <strong>kahlua</strong>, we can just do
+<ul>
+<li><code>print(class-object-instance)</code></li>
+</ul>
+</li>
+<li>
+<h6>it's like a <strong>based</strong> principle that we should always follow</h6>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="-what-exactly-is-getting-passed-in">🧐 What exactly is getting passed in? </h3>
+<ul>
+<li>Turns out, after I did the <code>print()</code><pre data-role="codeBlock" data-info="ruby" class="language-ruby ruby"><code>zombie<span class="token punctuation">.</span>iso<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>IsoTelevision@<span class="token number">747</span>bfeba
+</code></pre><ul>
+<li>
+<p>This is what i got on the <strong>debugMode</strong> CommandConsole</p>
+</li>
+<li>
+<p>*Note:- as i clicked on the TV inside a room in Zomboid / or / RightClick ➡️ <code>Device Options</code><br>
+<img src="image-1.png" alt="alt text"></p>
+</li>
+<li>
+<p>Functions / Member of <strong>this lua class</strong> is listed here</p>
+<ul>
+<li><a href="https://projectzomboid.com/modding/zombie/iso/objects/IsoTelevision.html">https://projectzomboid.com/modding/zombie/iso/objects/IsoTelevision.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="-tldr--under-the-hood">🚴 TL;DR 🧢 Under the Hood </h3>
+<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token keyword keyword-return">return</span> nameD <span class="token operator">==</span> <span class="token function">getItemNameFromFullType</span><span class="token punctuation">(</span><span class="token string">"Radio.TvBlack"</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li>basically translates to</li>
+</ul>
+<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token keyword keyword-return">return</span> zombie<span class="token punctuation">.</span>iso<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>IsoTelevision<span class="token punctuation">:</span><span class="token function">getDeviceData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">getDeviceName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">getItemNameFromFullType</span><span class="token punctuation">(</span><span class="token string">"Radio.TvBlack"</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li>So 🚨 <strong>the bug</strong>, basically breaks down to the fact that
+<ul>
+<li><strong>these don't have the same value</strong></li>
+<li>that is, <strong>in Multiplayer</strong></li>
+<li>that is, when <code>BetterSorting</code> <strong>is enabled</strong></li>
+</ul>
+</li>
+</ul>
+<div class="REY_NOSHOW_PDF">
+<hr>
+<div align="center" style="font-size: 50px; font-family: 'Iosevka Curly'; ">Page-Break</div>
+</div>
+<div class="REY_PAGEBREAK"></div>
+<div class="REY_NOSHOW_PDF">
+<hr>
+</div>
+<h3 id="-so-how-do-we-fix-this-issue-now">🤔 So, How do we fix this issue now? </h3>
+<ul>
+<li>
+<p>Well, Technically speaking, we shouldn't even be comparing "NAMES" like <strong>"ValuTech Television"</strong> or <strong>"Television - ValuTech"</strong> in the first place 💁‍♀️</p>
+<ul>
+<li>For what it's worth, a player could just <strong>rename</strong> a goddamn TV - or - any object, really!
+<ul>
+<li>*saying "goddamn" with a smiling face 😊</li>
+<li>*inside <strong>DebugMode</strong> 🥴 but still 💁‍♀️<br>
+<img src="image-2.png" alt="alt text"></li>
+</ul>
+</li>
+<li>but, yk what's great? 😄
+<ul>
+<li>The <strong>"Item Type"</strong> right above the <strong>"Name"</strong> inside the image above</li>
+<li>which is = <code>Radio.TvBlack</code> right now
+<ul>
+<li>that's clearly smth that's <strong>not changable</strong></li>
+<li>it's like a <strong>Constant Unique Identifier</strong> 💁‍♀️</li>
+<li>heck,</li>
+<li>you are even using that to pass on to the function <code>getItemNameFromFullType("Radio.TvBlack")</code></li>
+<li>if you've read the glossary part,</li>
+<li>yk that, i called it
+<ul>
+<li><code>InventoryItemFullType</code></li>
+</ul>
+</li>
+</ul>
+  <div class="BR1"></div>
+  <div class="BR1"></div>
+  <div class="BR1"></div>
+  <div class="BR1"></div>
+  <div class="BR1"></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>So, why compare the <strong>"Name"</strong> when we already got the <strong>Constant Unique Identifier</strong> 💁‍♀️?</p>
+</li>
+<li>
+<p>So, from now on <strong>Constant Unique Identifier</strong> = <code>InventoryItemFullType</code></p>
+</li>
+</ul>
+<div class="BR1"></div>
+<div class="BR1"></div>
+<div class="BR1"></div>
+<div class="BR1"></div>
+<hr>
+<h3 id="why-inventoryitemfulltype---you-might-ask">Why <code>InventoryItemFullType</code>? - you might ask </h3>
+<ul>
+<li>it's because of #1<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token function">getItemNameFromFullType</span><span class="token punctuation">(</span><span class="token string">"Radio.TvBlack"</span><span class="token punctuation">)</span>
+</code></pre></li>
+<li>#2<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code>zombie<span class="token punctuation">.</span>inventory<span class="token punctuation">.</span>InventoryItem<span class="token punctuation">:</span><span class="token function">getFullType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li><a href="https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html#getFullType()">https://projectzomboid.com/modding/zombie/inventory/InventoryItem.html#getFullType()</a></li>
+</ul>
+</li>
+<li>so,
+<ul>
+<li>its pretty clear that, zomboid devs are calling <code>Radio.TvBlack</code> = <code>FullType</code></li>
+</ul>
+</li>
+<li>but,
+<ul>
+<li><code>FullType</code> of what? ➡️ an <code>inventoryItem</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<div class="BR3"></div>
+<h3 id="-tldr--so-whats-the-solution">🚴 TL;DR 📜 So, What's the Solution? </h3>
+<ul>
+<li>
+<p>Well, we should just check</p>
+<ul>
+<li>
+<p><strong>Constant Unique Identifier</strong><br>
+= <code>Radio.TvBlack</code> (as of <strong>B41</strong>)<br>
+= <code>Base.TvBlack</code> (<strong>B42</strong>)<br>
+= <code>InventoryItemFullType</code><br>
+= Not Changable in even <strong>DebugMode</strong></p>
+  <div class="BR2"></div>
+</li>
+<li>
+<p>instead of,</p>
+</li>
+</ul>
+  <div class="BR2"></div>
+<ul>
+<li><strong>"Name"</strong><br>
+= <strong>"ValuTech Television"</strong><br>
+= <strong>"Television - ValuTech"</strong> (<code>BetterSorting</code>)<br>
+= anybody can change in <strong>DebugMode</strong></li>
+</ul>
+</li>
+</ul>
+<div class="REY_NOSHOW_PDF">
+<hr>
+<div align="center" style="font-size: 50px; font-family: 'Iosevka Curly'; ">Page-Break</div>
+</div>
+<div class="REY_PAGEBREAK"></div>
+<div class="REY_NOSHOW_PDF">
+<hr>
+</div>
+<h3 id="docstrange-️-1-last-problem-br"><em>(DocStrange)</em> ☝️ 1 Last Problem <br> </h3>
+<h3 id="div-classrey_br4_negative-stylefont-size75how-to-get-inventoryitemfulltype-from-isoobjectdiv"><div class="REY_BR4_NEGATIVE" style="font-size:75%"><em>How to get <code>InventoryItemFullType</code> from <code>IsoObject</code>?</em></div> </h3>
+<div class="BR2"></div>
+<ul>
+<li>That I couldn't do right away. 💁‍♀️</li>
+<li>Everything <strong>above</strong>, took me <strong>~6hours</strong> with the help of <strong>PZMC (Project Zomboid Modding Community) Discord</strong>
+<ul>
+<li>I really couldn't have pulled this off without the help of
+<ul>
+<li><strong>Shurutsue</strong></li>
+<li><strong>Sir Doggy Jvla</strong></li>
+<li><strong>Albion</strong></li>
+</ul>
+</li>
+<li>From around 6p.m. ➡️ 1a.m. (with a break of dinner)</li>
+</ul>
+</li>
+</ul>
+<div class="BR1"></div>
+<ul>
+<li>Got Tired ➡️ Fell Asleep</li>
+</ul>
+<div class="BR2"></div>
+<ul>
+<li>Woke up around <strong>7:30a.m.</strong></li>
+<li>Started working on this one last problem ➡️ finished around <strong>11a.m.</strong><br>
+<img src="image-3.png" alt="alt text"></li>
+<li>The <strong>"Eureka Moment"</strong> was probably around <strong>9/10a.m.</strong> 💁‍♀️</li>
+</ul>
+<pre data-role="codeBlock" data-info="lua" class="language-lua lua"><code><span class="token keyword keyword-function">function</span> ISRadioWindow<span class="token punctuation">:</span><span class="token function">readFromObject</span><span class="token punctuation">(</span> _player<span class="token punctuation">,</span> _deviceObject <span class="token punctuation">)</span>
+    <span class="token punctuation">...</span>
+                       _deviceObject<span class="token punctuation">:</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">Val</span><span class="token punctuation">(</span><span class="token string">"CustomItem"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"Radio.TvBlack"</span>
+            <span class="token comment">-- which would translate into</span>
+    zombie<span class="token punctuation">.</span>iso<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>IsoTelevision<span class="token punctuation">:</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">Val</span><span class="token punctuation">(</span><span class="token string">"CustomItem"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"Radio.TvBlack"</span>
+            <span class="token comment">-- we would ideally / essentially be comparing</span>
+                                                       <span class="token string">"Radio.TvBlack"</span> <span class="token operator">==</span> <span class="token string">"Radio.TvBlack"</span>   <span class="token comment">-- or</span>
+    <span class="token punctuation">...</span>
+</code></pre><h3 id="-tldr-gist-link">🚴 TL;DR Gist Link </h3>
+<h3 id="div-classrey_br4_negative-stylefont-size50-httpsgistgithubcomreynepf40d54acd64332dfb81e52ad4f176c97-div"><div class="REY_BR4_NEGATIVE" style="font-size:50%"> *<a href="https://gist.github.com/REYNEP/f40d54acd64332dfb81e52ad4f176c97">https://gist.github.com/REYNEP/f40d54acd64332dfb81e52ad4f176c97</a> </div> </h3>
+<div class="REY_NOSHOW_PDF">
+<hr>
+<div align="center" style="font-size: 50px; font-family: 'Iosevka Curly'; ">Page-Break</div>
+</div>
+<div class="REY_PAGEBREAK"></div>
+<div class="REY_NOSHOW_PDF">
+<hr>
+</div>
+<h3 id="️-refactoring-suggestions-patch-v2">🛠️ Refactoring Suggestions, <em>Patch</em> v2 </h3>
+<h3 id="️-this-patch-should-autofix-1-other-issue">🛠️ This Patch should <em>AutoFix 1 other issue</em> </h3>
+<ul>
+<li>Old Save MultiPlayer = Doesn't Work
+<ol>
+<li>comment #15 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/#c592888717905009094">🔗</a></li>
+<li>comment #14 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/#c592888717904997272">🔗</a>
+<ul>
+<li>Now these last two reports were happening also because of how <code>checkName()</code> function is implemented by <code>TV &amp; Radio ReInvented</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<div class="BR1"></div>
+<ul>
+<li>However, I Couldn't even generate this issue, i tried, 💁‍♀️
+<ul>
+<li>creating a vanila server first,</li>
+<li>Equipping, Adding to Inventory, Spawning a few TV + Radio + WalkieTalkie</li>
+<li>Reloaded with <code>TV + Radio ReInvented</code> mod (not my fix, made sure your one from steam)</li>
+<li>It was all working just fine....</li>
+</ul>
+</li>
+</ul>
+<h3 id="-findings--conclusions">📜 Findings / Conclusions </h3>
+</div>
+<h3 id="-other-unrelated-bug-reports-i-may-try-to-fix-later-on">📝 Other UnRelated Bug Reports, <em>(I may try to fix later on)</em> </h3>
+<ol>
+<li>Inventory Tetris, GridSize problem
+<ul>
+<li>comment #29 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=2#c604149834549638307">🔗</a></li>
+</ul>
+</li>
+<li>Broadcast Voice (Framework) / Voiced TV &amp; Radio
+<ul>
+<li>comment #23 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=2#c523083364935186185">🔗</a></li>
+</ul>
+</li>
+<li>Vanilla Portable Disc Player
+<ul>
+<li>comment #21 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=2#c523083237291000126">🔗</a></li>
+</ul>
+</li>
+<li>Vanilla <code>doTuneInButton()</code> syntax / code issue
+<ul>
+<li>comment #16 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/?ctp=2#c592888815005227806">🔗</a></li>
+</ul>
+</li>
+<li>Spiffophonic Sound Lite
+<ul>
+<li>comment #06 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/#c592888463635883636">🔗</a></li>
+</ul>
+</li>
+<li>True Music Radio
+<ul>
+<li>comment #08 <a href="https://steamcommunity.com/workshop/filedetails/discussion/3420581050/592888305856604400/#c592888629473368887">🔗</a>
+<ul>
+<li>I really don't like this user's tone.</li>
+<li>But it's still a report nontheless.... 🤦‍♀️</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<h6>*Note:- I'll do this if you help me with knowledge on how to escape this shitty country.</h6>
+</li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#project-zomboid-reyfix2" class="md-toc-link"><p>Project Zomboid <code>reyFix2</code></p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#️-conflicting-mods" class="md-toc-link">
+            <p>⚔️ Conflicting Mods</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#️-the-bug-" class="md-toc-link">
+            <p>🏞️ The Bug 🚨</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-same-reports-from-others" class="md-toc-link">
+            <p>📝 Same Reports from others</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#if-you-are-feeling-exhausted-️-see-tldr-in-every-page" class="md-toc-link">
+            <p>If, you are feeling exhausted ➡️ <em>See</em> TL:DR <em>in every page</em></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-pin-pointing" class="md-toc-link">
+            <p>🔍 Pin-Pointing</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-glossary" class="md-toc-link">
+            <p>📜 Glossary</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#️-investigation" class="md-toc-link">
+            <p>🕵️ Investigation</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-tldr" class="md-toc-link">
+            <p>🚴 TL;DR</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-so-what-issss-really-named" class="md-toc-link">
+            <p>🤔 So, What issss really <code>nameD</code>?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-what-do-we-do-now" class="md-toc-link">
+            <p>😵‍💫 What do we do now?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-what-exactly-is-getting-passed-in" class="md-toc-link">
+            <p>🧐 What exactly is getting passed in?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-tldr--under-the-hood" class="md-toc-link">
+            <p>🚴 TL;DR 🧢 Under the Hood</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-so-how-do-we-fix-this-issue-now" class="md-toc-link">
+            <p>🤔 So, How do we fix this issue now?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#why-inventoryitemfulltype---you-might-ask" class="md-toc-link">
+            <p>Why <code>InventoryItemFullType</code>? - you might ask</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-tldr--so-whats-the-solution" class="md-toc-link">
+            <p>🚴 TL;DR 📜 So, What's the Solution?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#docstrange-️-1-last-problem-br" class="md-toc-link">
+            <p><em>(DocStrange)</em> ☝️ 1 Last Problem <br></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#div-classrey_br4_negative-stylefont-size75how-to-get-inventoryitemfulltype-from-isoobjectdiv" class="md-toc-link">
+            <div class="REY_BR4_NEGATIVE" style="font-size:75%">*How to get `InventoryItemFullType` from `IsoObject`?*</div>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-tldr-gist-link" class="md-toc-link">
+            <p>🚴 TL;DR Gist Link</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#div-classrey_br4_negative-stylefont-size50-httpsgistgithubcomreynepf40d54acd64332dfb81e52ad4f176c97-div" class="md-toc-link">
+            <div class="REY_BR4_NEGATIVE" style="font-size:50%"> *https://gist.github.com/REYNEP/f40d54acd64332dfb81e52ad4f176c97 </div>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#️-refactoring-suggestions-patch-v2" class="md-toc-link">
+            <p>🛠️ Refactoring Suggestions, <em>Patch</em> v2</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#️-this-patch-should-autofix-1-other-issue" class="md-toc-link">
+            <p>🛠️ This Patch should <em>AutoFix 1 other issue</em></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-findings--conclusions" class="md-toc-link">
+            <p>📜 Findings / Conclusions</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-other-unrelated-bug-reports-i-may-try-to-fix-later-on" class="md-toc-link">
+            <p>📝 Other UnRelated Bug Reports, <em>(I may try to fix later on)</em></p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

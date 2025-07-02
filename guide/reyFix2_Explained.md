@@ -1,3 +1,11 @@
+---
+print_background: true
+html:
+    toc: true
+ebook:
+    title: reyFix2 [PZ]
+---
+
 <div class="REY_ACADEMIA1">
 
 ## Project Zomboid `reyFix2`
@@ -45,7 +53,7 @@
 <div class="REY_NOSHOW_PDF">
 
 -------------------------------------------------------------------
-<div align=center style="font-size: 50px; font-family: 'Iosevka Curly'; ">Page-Break</div>
+<div align=center style="font-size: 50px; font-family: 'Quartist'; ">Page-Break</div>
 </div>
 <div class="REY_PAGEBREAK"></div>
 <div class="REY_NOSHOW_PDF">
