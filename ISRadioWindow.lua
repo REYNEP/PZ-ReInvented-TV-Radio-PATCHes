@@ -231,9 +231,31 @@ function ISRadioWindow:prerender()
 	
 	if self.deviceData then
 	
-		local function checkName(name)
-			return nameD == getItemNameFromFullType(name)
-		end
+		-- REYMOD
+        local m_Device = self.device                                -- so that we can access inside --> local function checkName()
+        local function checkName(inventoryItemFullType)             -- inventoryItemFullType = item ID = `Radio.TvBlack` [B41] = `Base.TvBlack` [B42] = unique identifier
+
+            if (instanceof(m_Device, "IsoObject"))                  -- make sure that we have children of `zombie.iso.IsoObject`
+            then
+                local REY_IsoObject = m_Device                      -- zombie.iso.objects.IsoTelevision@747bfeba                                             
+                -- print("[REY]:- " .. tostring(REY_IsoObject))     -- REY LOG
+                return inventoryItemFullType == REY_IsoObject:getProperties():Val("CustomItem")   
+                                                                    -- Check `Radio.TvBlack == Radio.TvBlack` ideally....
+
+            elseif (instanceof(m_Device, "InventoryItem"))
+            then
+                local REY_InventoryItem = m_Device
+                -- print("[REY]:- " .. tostring(REY_InventoryItem)) -- REY LOG
+                return inventoryItemFullType == REY_InventoryItem:getFullType()                 
+                                                                    -- Check `Radio.TvBlack == Radio.TvBlack` ideally....
+
+            else
+                -- print("[REY ERROR]:- UnSupported KahLua DynamicObject --> " .. tostring(m_Device))
+                -- Can't Print inside prerender() because it runs in a loop, thousands of time, as long as TV UI is rendered
+            end
+
+        end
+        -- REYMOD
 
 		if checkName("Radio.TvBlack") then drawBG(self.valutechTV, 282 , 282) return
 		elseif checkName("Radio.TvWideScreen") then drawBG(self.premiumTV, 282 , 282) return
@@ -341,9 +363,104 @@ function ISRadioWindow:readFromObject( _player, _deviceObject )
 		end
 	end
 
-	local function checkName(name)
-		return nameD == getItemNameFromFullType(name)
-	end
+    --[[
+    local path1 = "Logs/reyLog.txt"
+    local fileWriter1 = getFileWriter(path1, true, true)                  -- LuaManager.getFileWriter
+
+        print(self.device)
+
+        fileWriter1:write("SMTH IN THE WAY \n")
+        for key, value in pairs(self) do
+            fileWriter1:write(tostring(key));
+            fileWriter1:write(" = ")
+            fileWriter1:write(tostring(value));
+            fileWriter1:write("\n")
+        end
+        fileWriter1:write("\n\n\n\n\n\n\n\n\n\n\n\n\n")
+        for key, value in pairs(zombie.iso.objects.IsoTelevision) do
+            fileWriter1:write(tostring(key));
+            fileWriter1:write(" = ")
+            fileWriter1:write(tostring(value));
+            fileWriter1:write("\n")
+        end
+        fileWriter1:write("\n\n\n\n\n\n\n\n\n\n\n\n\n")
+        fileWriter1:write(tostring(self.device))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getObjectName()))
+        fileWriter1:write("\n")
+        self.device:debugPrintout();
+        fileWriter1:write(tostring(self.device:getName()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getItemContainer()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getTalkerType()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getKeyId()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getContainer()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getSpriteName()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getTextureName()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getScriptName()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getSquare()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getObjectIndex()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getModData()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getType()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getTile()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getSprite()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device:getWorldObjectIndex()))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device.name))
+        fileWriter1:write("\n")
+        fileWriter1:write(tostring(self.device.table))
+        fileWriter1:write("\n")
+        local smth = self.device:getProperties()
+        local props = smth:getPropertyNames()
+        for i = 0, props:size() - 1 do
+            fileWriter1:write(tostring(props:get(i)))
+            fileWriter1:write(" = ")
+            fileWriter1:write(tostring(smth:Val(props:get(i))))
+            fileWriter1:write("\n")
+        end
+        fileWriter1:write("\n\n\n\n\n\n\n\n\n\n\n\n\n")
+
+
+    fileWriter1:close()
+    ]]
+    
+    -- REYMOD
+	local m_Device = self.device                                -- so that we can access inside --> local function checkName()
+    local function checkName(inventoryItemFullType)             -- inventoryItemFullType = item ID = `Radio.TvBlack` [B41] = `Base.TvBlack` [B42] = unique identifier
+
+        if (instanceof(m_Device, "IsoObject"))                  -- make sure that we have children of `zombie.iso.IsoObject`
+        then
+            local REY_IsoObject = m_Device                      -- zombie.iso.objects.IsoTelevision@747bfeba                                             
+            -- print("[REY]:- " .. tostring(REY_IsoObject))     -- REY LOG
+            return inventoryItemFullType == REY_IsoObject:getProperties():Val("CustomItem")   
+                                                                -- Check `Radio.TvBlack == Radio.TvBlack` ideally....
+
+        elseif (instanceof(m_Device, "InventoryItem"))
+        then
+            local REY_InventoryItem = m_Device
+            -- print("[REY]:- " .. tostring(REY_InventoryItem)) -- REY LOG
+            return inventoryItemFullType == REY_InventoryItem:getFullType()                 
+                                                                -- Check `Radio.TvBlack == Radio.TvBlack` ideally....
+
+        else
+            print("[REY ERROR]:- UnSupported KahLua DynamicObject --> " .. tostring(m_Device))
+        end
+
+    end
+    -- REYMOD
 
 	if self.player and self.device and self.deviceData then
 		if checkName("Radio.TvBlack") or checkName("Radio.TvWideScreen") or checkName("Radio.TvAntique") then enableModule(1) return
